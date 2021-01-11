@@ -1,0 +1,138 @@
+{% load static %}
+{% load qr_code %}
+
+<!doctype html>
+<html>
+<head>
+    <title>NACOSSITE</title>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="descriptison">
+    <meta content="" name="keywords">
+
+    <!-- Favicons -->
+    <link href="{% static 'pictures/img/logo.png' %}" rel="icon">
+    <link href="{% static 'pictures/img/logo.png' %}" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+          rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/vendor/icofont/icofont.min.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/vendor/owl.carousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/vendor/venobox/venobox.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/vendor/aos/aos.css' %}" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
+    <style>
+        body {background-color: #eee}
+            .fs-12 {font-size: 12px}
+            .fs-15 {font-size: 15px}
+            .name {margin-bottom: -2px}
+            .product-details {margin-top: 13px}
+    </style>
+</head>
+
+
+<body oncontextmenu='return false' class='snippet-body'>
+<div class="container mt-5 mb-5">
+    <div class="d-flex justify-content-center row">
+        <div class="col-md-10">
+            <div class="receipt bg-white p-3 rounded"><img src="logo" width="120" alt="school logo">
+                <h4 class="mt-2 mb-3">THE FEDERAL POLYTECHNIC, ADO-EKITI, EKITI STATE, NIGERIA.</h4>
+                <h6 class="name">SCHOOL OF SCIENCES AND COMPUTER STUDIES</h6><span class="fs-12 text-black-50">DEPARTMENT OF COMPUTER SCIENCE</span>
+                <hr>
+                <div class="d-flex flex-row justify-content-between align-items-center order-details">
+                    <div><span class="d-block fs-12">Payment date</span><span
+                            class="font-weight-bold">{% now "jS F Y H:i" %}</span></div>
+                    <div><span class="d-block fs-12">Matric number</span><span class="font-weight-bold">{{bio.matric_number}}</span>
+                    </div>
+                    <div><span class="d-block fs-12">Payer's name</span><span
+                            class="font-weight-bold">{{request.user.last_name}} {{request.user.first_name}}</span>
+                    </div>
+                    <div><span class="d-block fs-12">Paid to</span><span class="font-weight-bold text-success">NACOSS</span>
+                    </div>
+                </div>
+                <hr>
+                <div class="d-flex justify-content-between align-items-center product-details">
+                    <div class="d-flex flex-row product-name-image"><img class="rounded"
+                                                                         src=""
+                                                                         width="80" alt="logo">
+                        <div class="d-flex flex-column justify-content-between ml-2">
+                            <div><span class="d-block font-weight-bold p-name">NACOSS due</span><span
+                                    class="fs-12"></span></div>
+                            <span class="fs-12"></span>
+                        </div>
+                    </div>
+                    <div class="product-price">
+                        <h5>1000</h5>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-between align-items-center product-details">
+                    <div class="d-flex flex-row product-name-image"><img class="rounded"
+                                                                         src=""
+                                                                         width="80">
+                        <div class="d-flex flex-column justify-content-between ml-2">
+                            <div><span class="d-block font-weight-bold p-name">Site Maintenance</span><span
+                                    class="fs-12"></span></div>
+                            <span class="fs-12"></span>
+                        </div>
+                    </div>
+                    <div class="product-price">
+                        <h6>70</h6>
+                    </div>
+                </div>
+                <div class="mt-5 amount row">
+                    <div class="d-flex justify-content-center col-md-6">
+                        <div>{% qr_from_text ref size='s' border=2 %}</div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="billing">
+                            <div class="d-flex justify-content-between"><span>Subtotal</span><span
+                                    class="font-weight-bold">1070</span></div>
+
+                            <div class="d-flex justify-content-between mt-2"><span
+                                    class="text-success">Bank Charges</span><span
+                                    class="font-weight-bold text-success">25</span></div>
+                            <hr>
+                            <div class="d-flex justify-content-between mt-1"><span class="font-weight-bold">Total</span><span
+                                    class="font-weight-bold text-success">1100</span></div>
+                        </div>
+                    </div>
+                </div>
+                <span class="d-block">Expected delivery date</span><span class="font-weight-bold text-success">{% now "jS F Y " %}</span><span
+                        class="d-block mt-3 text-black-50 fs-15">Additional evidence is sent to your email, kindly print this slip and sumit to your class governor!</span>
+                <hr>
+                <div class="d-flex justify-content-between align-items-center footer">
+                    <div class="thanks"><span class="d-block font-weight-bold">Thanks for paying you due</span><span>Great Nacossite</span>
+                    </div>
+                    <div class="d-flex flex-column justify-content-end align-items-end"><span
+                            class="d-block font-weight-bold">Need Help?</span><span>Call - 09060050730</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Vendor JS Files -->
+<script src="{% static 'assets/vendor/jquery/jquery.min.js' %}"></script>
+<script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+<script src="{% static 'assets/vendor/jquery.easing/jquery.easing.min.js' %}"></script>
+<script src="{% static 'assets/vendor/php-email-form/validate.js' %}"></script>
+<script src="{% static 'assets/vendor/owl.carousel/owl.carousel.min.js' %}"></script>
+<script src="{% static 'assets/vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+<script src="{% static 'assets/vendor/venobox/venobox.min.js' %}"></script>
+<script src="{% static 'assets/vendor/aos/aos.js' %}"></script>
+<!-- Template Main JS File -->
+<script src="{% static 'assets/js/main.js' %}"></script>
+
+</body>
+
+</html>

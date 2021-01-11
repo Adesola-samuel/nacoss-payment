@@ -1,0 +1,47 @@
+{% extends 'inner-page.html' %}
+
+{% block content %}
+<!-- CSS only -->
+<br>
+
+<div class="row justify-content-center">
+    <div class="col col-8 mt-3 text-center pt-3">
+
+            <div class="row"> <p class="lead"></p> </div>
+            <table class="table table-striped">
+                <thead>
+                <h1>{{paid}}</h1>
+                    <tr>
+                        <th colspan="2" class="text-success">PAYMENT FOR NACOSS DUE</th>
+                    </tr>
+                </thead>
+                <tody>
+                    <tr>
+                        <td>Name :</td>
+                        <td>{{request.user.last_name}} {{request.user.first_name}}</td>
+                    </tr>
+                    <tr>
+                        <td>Matric Number :</td>
+                        <td>{{bio.matric_number}}</td>
+                    </tr>
+                    <tr>
+                        <td>Level :</td>
+                        <td>{{bio.level}}</td>
+                    </tr>
+                    <tr>
+                        <td>Amount :</td>
+                        <td>N 1100</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="text-center">
+                            <a href="https://paystack.com/pay/pxenmfj2cf"><button class="btn btn-outline-success btn-block">Pay NACOSS due</button></a>
+                        </td>
+                    </tr>
+                </tody>
+            </table>
+
+
+    </div>
+</div>
+
+{% endblock content %}

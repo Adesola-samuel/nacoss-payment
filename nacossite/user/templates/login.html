@@ -1,0 +1,28 @@
+{% extends 'inner-page.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="row">
+    <div class="col col-md-4 offset-md-4">
+        <form method="POST" action="" autocomplete="off">
+            {% csrf_token %}
+
+                    {{form.username|as_crispy_field}}
+                    {{form.password|as_crispy_field}}
+            {% for message in messages %}
+            <p class="text-primary">
+               <b> {{message}} ! </b>
+            </p>
+            {% endfor %}
+            <br>
+            <input type="submit" value="Login" class="btn btn-dark btn-block">
+            <input type="reset" value="Clear" class="btn btn-info btn-block">
+            <a href="{% url 'user:create_user' %}"><p class="text-center text-info">Sign up here if you don't have an account</p></a>
+        </form>
+
+
+    </div>
+</div>
+
+
+{% endblock content %}
