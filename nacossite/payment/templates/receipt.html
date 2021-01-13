@@ -12,10 +12,6 @@
     <meta content="" name="descriptison">
     <meta content="" name="keywords">
 
-    <!-- Favicons -->
-    <link href="{% static 'pictures/img/logo.png' %}" rel="icon">
-    <link href="{% static 'pictures/img/logo.png' %}" rel="apple-touch-icon">
-
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
           rel="stylesheet">
@@ -39,18 +35,27 @@
     </style>
 </head>
 
-
 <body oncontextmenu='return false' class='snippet-body'>
 <div class="container mt-5 mb-5">
     <div class="d-flex justify-content-center row">
         <div class="col-md-10">
-            <div class="receipt bg-white p-3 rounded"><img src="logo" width="120" alt="school logo">
-                <h4 class="mt-2 mb-3">THE FEDERAL POLYTECHNIC, ADO-EKITI, EKITI STATE, NIGERIA.</h4>
-                <h6 class="name">SCHOOL OF SCIENCES AND COMPUTER STUDIES</h6><span class="fs-12 text-black-50">DEPARTMENT OF COMPUTER SCIENCE</span>
+            <div class="receipt bg-white p-3 rounded">
+                <div class="row">
+                    <div class="col col-md-2">
+                        <img src="{% static 'assets/img/download-1.jpg' %}" width="120" alt="school logo">
+                    </div>
+                    <div class="col">
+                        <h4 class="mt-2 mb-3">THE FEDERAL POLYTECHNIC, ADO-EKITI, EKITI STATE, NIGERIA.</h4>
+                        <h6 class="name">SCHOOL OF SCIENCES AND COMPUTER STUDIES</h6>
+                        <span class="fs-12 text-black-50">DEPARTMENT OF COMPUTER SCIENCE</span>
+                    </div>
+                </div>
+
+
                 <hr>
                 <div class="d-flex flex-row justify-content-between align-items-center order-details">
                     <div><span class="d-block fs-12">Payment date</span><span
-                            class="font-weight-bold">{% now "jS F Y H:i" %}</span></div>
+                            class="font-weight-bold">{{res.paid_at}}</span></div>
                     <div><span class="d-block fs-12">Matric number</span><span class="font-weight-bold">{{bio.matric_number}}</span>
                     </div>
                     <div><span class="d-block fs-12">Payer's name</span><span
@@ -88,9 +93,9 @@
                         <h6>70</h6>
                     </div>
                 </div>
-                <div class="mt-5 amount row">
+                <div class="mt-2 amount row">
                     <div class="d-flex justify-content-center col-md-6">
-                        <div>{% qr_from_text ref size='s' border=2 %}</div>
+                        <div>{% qr_from_text detail size='6' border=1 %}</div>
                     </div>
                     <div class="col-md-6">
                         <div class="billing">
@@ -106,7 +111,7 @@
                         </div>
                     </div>
                 </div>
-                <span class="d-block">Expected delivery date</span><span class="font-weight-bold text-success">{% now "jS F Y " %}</span><span
+                <span class="d-block">This receipt was printed on</span><span class="font-weight-bold text-success">{% now "jS F Y " %}</span><span
                         class="d-block mt-3 text-black-50 fs-15">Additional evidence is sent to your email, kindly print this slip and sumit to your class governor!</span>
                 <hr>
                 <div class="d-flex justify-content-between align-items-center footer">

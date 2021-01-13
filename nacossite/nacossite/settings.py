@@ -31,6 +31,7 @@ INSTALLED_APPS = [
     'news',
     'crispy_forms',
     'qr_code',
+    'paystack',
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
@@ -115,5 +116,5 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
-PAYSTACK_PUBLIC_KEY='pk_live_3bfbcc4e4ef1049799b17fe6f7139cd12f0f8008'
-PAYSTACK_SECRET_KEY='sk_live_5179c95abaea53575145320bcc977257d99c2cc1'
+PAYSTACK_PUBLIC_KEY='pk_test_2f6d6a990efb700404df7a2791641e07e0e2ffc0'
+PAYSTACK_SECRET_KEY='sk_test_373fca11c502a8f5028ea28922fd128789714cb4'

@@ -7,6 +7,15 @@
 
 </head>
 <body oncontextmenu='return false' class='snippet-body'>
+<h1>response</h1>
+<p>{{response}}</p>
+<h1>customer code</h1>
+<p>{{response1}}</p>
+<h1>customer</h1>
+<p>{{cus}}</p>
+<h1>plan</h1>
+<p>{{plan}}</p>
+
 <div class="container mt-5">
     <div class="d-flex justify-content-center row">
         <div class="col-md-8">
@@ -65,7 +74,7 @@
                         </table>
                     </div>
                 </div>
-                <div class="text-right mb-3"><a href="https://paystack.com/pay/pxenmfj2cf">
+                <div class="text-right mb-3"><a href="{% url 'payment:payer' %}">
                     <button class="btn btn-danger btn-sm mr-5" type="button">Pay Now</button>
                 </a></div>
             </div>
